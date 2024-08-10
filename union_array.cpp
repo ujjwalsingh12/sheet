@@ -8,14 +8,12 @@ vector<int> FindUnion(int arr1[],int arr2[],int n,int m){
     bool b1=true,b2=true;
     vector<int> res;
     while(p<n || q<m){
-        if(arr1[p]<arr2[q] && b1){
-            res.push_back(arr1[p++]);
-        }
-        else if(b2){
-            res.push_back(arr2[q++]);
-        }
-        if(p==n) b1 = false;
-        if(q==m) b2 = false;
+        int t = min(arr1[p],arr2[q]);
+        res.push_back(t);
+        while(arr1[p]==t) p++;
+        while(arr2[q]==t) q++;
+        if(p>=n) b1 = false;
+        if(q>=m) b2 = false;
     }
     return res;
 }
