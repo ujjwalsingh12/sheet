@@ -1,30 +1,68 @@
-class Solution{
-    public:
+//{ Driver Code Starts
+
+//https://takeuforward.org/arrays/longest-subarray-with-sum-k-postives-and-negatives/
+
+#include <iostream>
+#include <vector>
+#include <map>
+using namespace std;
+
+
+// } Driver Code Ends
+
     
-    int lenOfLongSubarr(int A[],  int N, int K) 
+    int lenOfLongSubarr(vector<int> A,  int N, int K) 
     { 
         // Complete the function
         int maxL = 0;
-        vector<int> sums;
+        map<int,int> psums;
         int summ = 0;
         for(int i=0;i<N;i++){ 
             summ = summ + A[i];
-            sums.push_back(summ);
-            if(summ==K){
-                maxL = i+1;
+            if(summ==K){ maxL = max(maxL,i+1); }
+            
+            int rem = summ - K;
+            if(psums.find(rem)!=psums.end()){
+                maxL = max(maxL,i-psums[rem]);
+            }
+            
+            if(psums.find(summ)==psums.end()){
+                psums[summ] = i;
             }
         
     }
-        //
-        for(int i=1;i<N;i++){ // i == starting index
-            for(int j=i;j<N;j++){// to subtract from all
-                sums[j] -= A[i-1];
-                if(sums[j]==K){
-                    maxL = max(maxL,j-i+1);
-                }
-            }
-        }
+        
     return maxL; 
     } 
 
-};
+int main()
+{
+    std::vector<int> a({-1,1,1});
+    int k = 1;
+    int len = lenOfLongSubarr(a,a.size(), k);
+    cout << "The length of the longest subarray is: " << len << "\n";
+    return 0;
+}
+
+//{ Driver Code Starts.
+
+// int main() {
+// 	//code
+	
+// 	int t;cin>>t;
+// 	while(t--)
+// 	{
+// 	    int n, k;
+// 	    cin>> n >> k;
+// 	    int a[n];
+	    
+// 	    for(int i=0;i<n;i++)
+// 	        cin>>a[i];
+// 	   Solution ob;
+// 	   cout << ob.lenOfLongSubarr(a, n , k)<< endl;
+	    
+// 	}
+	
+// 	return 0;
+// }
+// } Driver Code Ends
