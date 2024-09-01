@@ -16,6 +16,7 @@ int longestSuccessiveElements(vector<int>&a) {
     for (int i = 0; i < n; i++) {
         st.insert(a[i]);
     }
+    // this is a important thing for sliding window approaches
 
     //Find the longest sequence:
     for (auto it : st) {

@@ -1,5 +1,5 @@
 //count_sub_with_sum_k.cpp
-
+//very important code
 #include <istream>
 #include <map>
 #include <vector>
@@ -19,7 +19,6 @@ int findAllSubarraysWithGivenSum(vector < int > & arr, int k) {
         // Calculate x-k:
         int remove = preSum - k;
 
-        // Add the number of subarrays to be removed:
         cnt += mpp[remove];
 
         // Update the count of prefix sum
