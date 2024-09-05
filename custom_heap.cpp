@@ -1,6 +1,9 @@
 #include <iostream>
+#include <map>
 #include <queue>
 #include <vector>
+
+using namespace std;
 
 // Define the data structure
 struct Item {
@@ -26,8 +29,7 @@ int main() {
     minHeap.push(Item(5, "apple"));
     minHeap.push(Item(3, "banana"));
     minHeap.push(Item(8, "cherry"));
-    minHeap.push(Item(1, "date"));
-
+    minHeap.push(Item(1, "date"));g
     // Print and pop elements from the heap
     while (!minHeap.empty()) {
         Item top = minHeap.top();

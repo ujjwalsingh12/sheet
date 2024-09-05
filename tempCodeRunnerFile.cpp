@@ -1,22 +1,19 @@
-#include <iostream>
-#include <string>
+//https://codeforces.com/contest/514/problem/A
+#include <bits/stdc++.h>
 using namespace std;
-
-int main() {
-    int t;
-    cin >> t; // Number of test cases
-
-    while (t--) {
-        int n;
-        cin >> n; // Length of the string
-
-        string s;
-        cin >> s; // The string itself
-
-        // Logic implementation will go here
-        sort(s.begin(),s.end());
-        cout << s << endl;
+int main(){
+    // vector<vector<int>> mat;
+    int x=0,y=0;
+    for(int i=0;i<5;i++){
+        for(int j =0;j<5;j++){
+            int inp;
+            cin >> inp;
+            if(inp){
+                x = i;y=j;
+            }
+        }
     }
+    cout  << abs(x-3)+abs(y-3) << endl;
+    return 1;
 
-    return 0;
 }
